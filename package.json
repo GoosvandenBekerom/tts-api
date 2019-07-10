@@ -1,0 +1,23 @@
+{
+  "name": "tts-api",
+  "version": "1.0.0",
+  "description": "Rest interface wrapping google text-to-speech api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoosvandenBekerom/tts-api.git"
+  },
+  "author": "Goos van den Bekerom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GoosvandenBekerom/tts-api/issues"
+  },
+  "homepage": "https://github.com/GoosvandenBekerom/tts-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "google-tts-api": "0.0.4"
+  }
+}
