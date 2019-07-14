@@ -1,5 +1,7 @@
 const express = require('express')
 const tts = require('google-tts-api')
+const https = require('https')
+const fs = require('fs')
 
 const app = express()
 const port = 3000
@@ -12,12 +14,19 @@ app.get('/:language/:query', async (req, res) => {
   }
 
 	if (query.length > 200) {
-		query = `Vuile paaz denk je dat ik zo'n lange tekst ga voorlezen...`;
+		query = `Vuile paaz denk je dat ik zo'n lange tekst ga voorlezen...`
 	}
   
-	const url = await tts(query.replace('paaz', 'paas'), language, 1);
-	
-	res.send({url});
+  const url = await tts(query.replace('paaz', 'paas'), language, 1)
+
+  const file = fs.createWriteStream(`${__dirname}/tts.wav`)
+  https.get(url,(response) => {
+    response.pipe(file)
+
+    file.on('finish', () => {
+      res.sendFile(file.path)
+    })
+  })
 })
 
 app.get('/', (req, res) => {
