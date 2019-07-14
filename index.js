@@ -17,7 +17,7 @@ app.get('/:language/:query', async (req, res) => {
   
 	const url = await tts(query.replace('paaz', 'paas'), language, 1);
 	
-	res.send({url: url.replace('&prev=input', '')});
+	res.send({url});
 })
 
 app.get('/', (req, res) => {
