@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/GoosvandenBekerom/tts-api#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "google-tts-api": "0.0.4"
   }
 }
